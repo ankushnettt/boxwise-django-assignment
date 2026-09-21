@@ -49,10 +49,9 @@ Dimensions are in centimetres, weights in kilograms, and cost in rupees (₹). B
 ## Selection rules
 1. An order must contain at least one item, otherwise no box is recommended.
 2. The box's maximum weight must be greater than or equal to the order's total weight.
-3. The total volume of all items must not exceed the box's volume.
-4. Every product must fit within the box's internal dimensions, with rotation allowed (dimensions are sorted and compared in order).
-5. Among the boxes that pass, the cheapest is chosen (ties are broken by id, so results are deterministic).
-6. If no box passes, the result is `None`.
+3. Every product must fit within the box's internal dimensions, with rotation allowed (dimensions are sorted and compared in order).
+4. Among the boxes that pass, the cheapest is chosen (ties are broken by id, so results are deterministic).
+5. If no box passes, the result is `None`.
 
 ## Design decisions
 - **DecimalField** for dimensions, weight and cost, because floats can give wrong results at exact boundaries (for example 0.1 + 0.2) and money should never be a float.
