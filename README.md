@@ -8,6 +8,22 @@ A Django project that recommends the cheapest shipping box for an order, based o
 - Exposes the recommendation as an HTML page and as a JSON endpoint.
 
 ## Setup
+
+Create a local `.env` file in the project root (the same folder as `manage.py`) before running Django. For local development, put your own values in it:
+
+```dotenv
+SECRET_KEY=replace-this-with-a-new-django-secret-key
+DEBUG=True
+```
+
+Generate a fresh secret key with:
+
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+Copy the generated value after `SECRET_KEY=` in `.env`. Do not commit or share `.env`; it is excluded by `.gitignore`. Use `DEBUG=False` in production.
+
 ```bash
 python -m venv venv
 venv\Scripts\activate          # Windows (macOS/Linux: source venv/bin/activate)
