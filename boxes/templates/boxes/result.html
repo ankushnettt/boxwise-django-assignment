@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Box recommendation for Order #{{ order.pk }}</title>
+  </head>
+  <body>
+    <h1>Order #{{ order.pk }}</h1>
+
+    <h2>Items</h2>
+    <ul>
+      {% for item in order.items.all %}
+        <li>{{ item.quantity }} x {{ item.product.name }}</li>
+      {% empty %}
+        <li>This order has no items.</li>
+      {% endfor %}
+    </ul>
+    <p>Total weight: {{ order.get_total_weight }} kg</p>
+
+    <h2>Recommendation</h2>
+    {% if recommended_box %}
+      <p>
+        Recommended box: <strong>{{ recommended_box.name }}</strong>
+      </p>
+      <p>Dimensions: {{ recommended_box.length }} × {{ recommended_box.width }} × {{ recommended_box.height }} cm</p>
+      <p>Maximum weight: {{ recommended_box.max_weight }} kg</p>
+      <p>Cost: ₹{{ recommended_box.cost }}</p>
+    {% else %}
+      <p>No suitable box was found for this order.</p>
+    {% endif %}
+  </body>
+</html>
