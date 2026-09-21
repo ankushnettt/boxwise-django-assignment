@@ -62,7 +62,6 @@ Dimensions are in centimetres, weights in kilograms, and cost in rupees (₹). B
 
 ## Known limitations
 This is a simplified version, not a true 3D bin-packing solver.
-- Each product is checked against the box individually, and the total volume is checked as a second filter. Some awkward combinations of shapes can pass both checks and still not pack physically.
 - Only one box per order is recommended. Orders that would need to be split across several boxes get no recommendation.
 - No padding, stacking limits or fragile-item rules are modelled.
 
